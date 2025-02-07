@@ -16,9 +16,29 @@ def template_view(request):
         # как пример получение данных по ключу `my_text`
         # my_text = received_data.get('my_text')
 
-        # TODO Проведите здесь получение и обработку данных если это необходимо
+        form = TemplateForm(received_data)  # Передали данные в форму
+        if form.is_valid():  # Проверили, что данные все валидные
+            my_text = form.cleaned_data.get("my_text")  # Получили очищенные данные
+            my_select = form.cleaned_data.get("my_select")
+            my_textarea = form.cleaned_data.get("my_textarea")
+            my_email = form.cleaned_data.get("email")
+            my_password = form.cleaned_data.get("password")
+            my_date = form.cleaned_data.get("date")
+            my_number = form.cleaned_data.get("number")
+            my_checkbox = form.cleaned_data.get("checkbox")
 
-        # TODO Верните HttpRequest или JsonResponse с данными
+            return JsonResponse(my_text, my_password, my_select, my_textarea
+                                json_dumps_params={"ensure_ascii": False, "indent": 4}, safe=False)
+
+        return render(request, 'app/template_form.html', context={"form": form})
+
+
+        # # TODO Проведите здесь получение и обработку данных если это необходимо
+        # my_password = received_data.get('password')
+        #
+        # # TODO Верните HttpRequest или JsonResponse с данными
+        # return JsonResponse(my_password,
+        #                     json_dumps_params={"ensure_ascii": False, "indent": 4}, safe=False)
 
 
 def login_view(request):

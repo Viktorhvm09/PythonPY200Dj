@@ -19,13 +19,13 @@
 					<h4 class="text-center mb-4">
 						Заголовок вашей формы
 					</h4>
-					<form method="post">
+					<form action="", method="post">
                         {% csrf_token %}
 						<!-- Запишите здесь тег {% csrf_token %} -->
 
                         <label for="my_text">Введи своё имя</label>  <!--for="my_text" это привязка к объекту с id="my_text", id - всегда должен быть уникален во всем HTML документе-->
                         <div class="form-input">  <!-- Блок для оборачивания строки формы -->
-                            <span><i class="fa fa-id-card"></i></span>  <!-- Fontawesom картинка в строке ввода-->
+                            <span><i class="fa fa-user-circle" aria-hidden="true"></i></i></span>  <!-- Fontawesom картинка в строке ввода-->
 							<input type="text" id="my_text" name="my_text" placeholder="Иван" required>  <!-- Строка ввода-->
 						</div>
                         <!-- Поле с выбором -->
@@ -48,14 +48,33 @@
                         <!-- Сформируйте и заполните нужные строки ввода (оберните их <div class="form-input"> как показано выше. Это нужно чтобы были одинаковые стили)-->
 
                         <!---- Добавьте еще поле для ввода email (придумайте текст для label)---->
-
+						<label for="email">Введите электронную почту</label>
+						<div class="form-input">
+							<span><i class="fa fa-envelope-o" aria-hidden="true"></i></i></span>
+							<input type="email" id="email" name="email" placeholder="xxx@xxx.xxx" required>
+						</div>
                         <!---- Добавьте еще поле для ввода пароля (придумайте текст для label)---->
-
+						<label for="password">Введите пароль</label>
+						<div class="form-input">
+							<span><i class="fa fa-key" aria-hidden="true"></i></i></span>
+							<input type="password" id="password" name="password" placeholder="***" required>
+						</div>
                         <!---- Добавьте еще поле для ввода даты (придумайте текст для label)---->
-
+						<label for="date">Введите дату</label>
+						<div class="form-input">
+							<span><i class="fa fa-calendar" aria-hidden="true"></i></i></span>
+							<input type="date" id="date" name="date">
+						</div>
                         <!---- Добавьте еще поле для ввода целого значения (придумайте текст для label)---->
-
+						<label for="number">Введите целое число от 1 до 5</label>
+						<div class="form-input">
+							<input type="number" id="number" name="number" value=1 min=1 max=5 step=1>
+						</div>
                         <!---- Добавьте еще поле для переключателя checkbox (придумайте текст для label)---->
+						<label for="checkbox">Включить переключатель </label>
+						<div class="form-input">
+							<input type="checkbox" id="checkbox" name="checkbox" required>
+						</div>
                         <!--------------------------------------------------------------------------------------------->
 
                         <!-- В форме всегда присутствует кнопка чтобы что-то отправить. Кнопку не изменять! -->
