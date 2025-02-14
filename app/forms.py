@@ -22,6 +22,19 @@ class TemplateForm(forms.Form):
     checkbox = forms.BooleanField()
 
 
+class CustomUserCreationForm(UserCreationForm):
+    email = forms.EmailField(widget=forms.EmailInput)
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.email = self.cleaned_data["email"]
+        if commit:
+            user.save()
+            if hasattr(self, "save_m2m"):
+                self.save_m2m()
+        return user
+
+
 """
 Типы полей и их аналоги задаваемые в формах HTML
 

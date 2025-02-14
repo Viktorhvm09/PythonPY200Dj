@@ -76,7 +76,12 @@
 							<input type="checkbox" id="checkbox" name="checkbox" required>
 						</div>
                         <!--------------------------------------------------------------------------------------------->
-
+						<!-- Блок для вывода ошибок(ХВМ)-->
+						{% if form.errors %}
+							<div class="mb-3 d-flex align-items-center">
+								<span style="color: red; font-size: 16px">{{ form.errors }}</span>
+							</div>
+						{% endif %}
                         <!-- В форме всегда присутствует кнопка чтобы что-то отправить. Кнопку не изменять! -->
 						<div class="mb-3"> 
 							<button type="submit" class="btn btn-block">
