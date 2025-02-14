@@ -134,3 +134,12 @@ LOGIN_REDIRECT_URL = '/profile/' # Чтобы после авторизации 
 SOCIAL_AUTH_GITHUB_KEY = 'Ov23lizO4uuV27hiGexT'
 SOCIAL_AUTH_GITHUB_SECRET = '28c8289b2a5622d51d54dd3497e9100de5ae8b13'
 SOCIAL_AUTH_GITHUB_SCOPE = ['user:email', 'read:user']
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Пример настроек для использования консольного бэкенда (для тестирования)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.ethereal.email'
+EMAIL_HOST_USER = 'alvera14@ethereal.email'
+EMAIL_HOST_PASSWORD = 'gT52dwWTBu7WkZ1D6C'
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
